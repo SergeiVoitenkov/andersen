@@ -73,7 +73,7 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public int size(T element) {
+    public int size() {
         return 0;
     }
 
