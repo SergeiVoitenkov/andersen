@@ -48,13 +48,30 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public void add(int index, Object element) {
+    public boolean add(int index, Object element) {
+        if (index >= 0) {
+            try {
+                this.elementArray = Arrays.copyOf(this.elementArray, index < this.elementArray.length ? this.elementArray.length + 1 : index + 1);
+                if (index < this.elementArray.length) {
+                    for (int i = elementArray.length - 1; i > index; i--) {
+                        this.elementArray[i] = this.elementArray[i - 1];
+                    }
+                }
+                this.elementArray[index] = (T) element;
+                this.size++;
+            } catch (Exception e) {
+                return false;
+            }
 
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public T get(int index) {
-        return null;
+        return elementArray[index];
     }
 
     @Override

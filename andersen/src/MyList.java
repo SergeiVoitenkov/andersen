@@ -5,7 +5,7 @@ public interface MyList<T> {
 
     void sort(Comparator<? super T> comparator);
 
-    void add(int index, T element);
+    boolean add(int index, T element);
 
     T get(int index);
 
