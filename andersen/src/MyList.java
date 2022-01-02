@@ -15,5 +15,5 @@ public interface MyList<T> {
 
     void remove(T element);
 
-    int size(T element);
+    int size();
 }

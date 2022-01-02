@@ -25,5 +25,10 @@ public class App {
 
         myArrayList.sort(comparator);
         System.out.println(myArrayList);
+        User user = new User("ffgfdh", 2);
+        myArrayList.add(user);
+        System.out.println(myArrayList);
+        myArrayList.remove(user);
+        System.out.println(myArrayList);
     }
 }
