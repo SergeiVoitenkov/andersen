@@ -69,12 +69,32 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void remove(T element) {
+        boolean isObjectFound = false;
 
+        for (int i = 0; i < size; i++) {
+            if (elementArray[i].equals(element)) {
+                elementArray[i] = elementArray[i + 1];
+                size--;
+                isObjectFound = true;
+            } else if (i == size - 1) {
+                elementArray[i] = null;
+            } else if (isObjectFound) {
+                elementArray[i] = elementArray[i + 1];
+            }
+            int newLength = elementArray.length / 2;
+            if ((elementArray.length / 2) > size) {
+                resize(newLength);
+            }
+        }
+    }
+
+    private void resize (int newLength) {
+        elementArray = Arrays.copyOf(elementArray, newLength);
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     private T[] increaseArray(int size) {
