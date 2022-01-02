@@ -76,12 +76,28 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public T set(int index, T element) {
+        if (index > 0 && index < size) {
+            T oldValue = elementArray[index];
+            elementArray[index] = element;
+            return oldValue;
+
+        }
+
         return null;
     }
 
     @Override
     public void remove(int index) {
+        if (index >= 0 && index < size) {
+            Object temp = this.elementArray[index];
+            for (int i = index; i < elementArray.length - 1; i++) {
+                this.elementArray[i] = this.elementArray[i + 1];
+            }
+            this.size--;
+            //return (int) temp;
+        }
 
+        //return 0;
     }
 
     @Override
