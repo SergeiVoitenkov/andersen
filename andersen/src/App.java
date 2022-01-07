@@ -1,4 +1,9 @@
 
+import org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.Headers;
+import org.w3c.dom.Node;
+
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 
 
@@ -7,12 +12,9 @@ public class App {
     public static void main(String[] args) {
 
         MyLinked<String> list = new MyLinked<>();
-        int [] s=new int[5];
-        list.add("ghkld");
-        list.add("rtyruj");
-        list.add("ghk';kl;klld");
-        list.add("ghkjhtld");
-        System.out.println(list.isEmpty());
+        list.add("46664");
+        list.add("7995");
+        System.out.println(list);
 
         MyArrayList<User> myArrayList = new MyArrayList<>();
         myArrayList.add(new User("C", 1));
