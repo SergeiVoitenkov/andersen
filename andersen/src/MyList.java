@@ -16,4 +16,15 @@ public interface MyList<T> {
     void remove(T element);
 
     int size();
+
+    interface MyLinkedList<T> {
+
+        Integer size();
+
+        void add(T t);
+
+        T remove(int index);
+
+        void sort();
+    }
 }
