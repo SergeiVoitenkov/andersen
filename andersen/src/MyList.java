@@ -16,4 +16,18 @@ public interface MyList<T> {
     void remove(T element);
 
     int size();
+
+    interface MyLinkedList<T> {
+
+    Integer size();
+
+    void addLast(T t );
+
+    void addFirst(T t );
+
+    T remove (T t);
+
+    void sort();
+    T getElementByIndex(int counter);
+    }
 }
