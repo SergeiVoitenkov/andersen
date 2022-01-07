@@ -1,5 +1,6 @@
 
 import java.util.Comparator;
+import java.util.LinkedList;
 
 public class App {
 
@@ -31,9 +32,29 @@ public class App {
         System.out.println(myArrayList);
         myArrayList.remove(user);
         System.out.println(myArrayList);
-        myArrayList.set(1,user1);
+        myArrayList.set(1, user1);
         System.out.println(myArrayList);
         myArrayList.remove(2);
         System.out.println(myArrayList);
+
+        Comparator<User> comparatorLinked = new Comparator<User>() {
+            @Override
+            public int compare(User o1, User o2) {
+                return (o1.getName().compareTo(o2.getName()));
+//                if ((o1.getAge() - o2.getAge()) == 0) {
+//                    return o1.getName().compareTo(o2.getName());
+//                } else {
+//                    return o1.getAge() - o2.getAge();
+//                }
+            }
+        };
+
+        MyLinkedList<User> list = new MyLinkedList<>();
+        list.add(new User("1", 1));
+        list.add(new User("3", 3));
+        list.add(new User("2", 2));
+        list.sort(comparatorLinked);
+        System.out.println(list);
+        LinkedList adas= new LinkedList();
     }
 }
