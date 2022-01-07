@@ -19,15 +19,12 @@ public interface MyList<T> {
 
     interface MyLinkedList<T> {
 
-    Integer size();
+        Integer size();
 
-    void addLast(T t );
+        void add(T t);
 
-    void addFirst(T t );
+        T remove(int index);
 
-    T remove (T t);
-
-    void sort();
-    T getElementByIndex(int counter);
+        void sort();
     }
 }

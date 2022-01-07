@@ -1,9 +1,18 @@
 
 import java.util.Comparator;
 
+
 public class App {
 
     public static void main(String[] args) {
+
+        MyLinked<String> list = new MyLinked<>();
+        int [] s=new int[5];
+        list.add("ghkld");
+        list.add("rtyruj");
+        list.add("ghk';kl;klld");
+        list.add("ghkjhtld");
+        System.out.println(list.isEmpty());
 
         MyArrayList<User> myArrayList = new MyArrayList<>();
         myArrayList.add(new User("C", 1));

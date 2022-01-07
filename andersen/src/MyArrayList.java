@@ -14,8 +14,7 @@ public class MyArrayList<T> implements MyList<T> {
         if (initialCapacity >= 0) {
             this.elementArray = (T[]) new Object[initialCapacity];
         } else {
-            throw new IllegalArgumentException("Illegal Capacity: " +
-                    initialCapacity);
+            throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
         }
     }
 
@@ -88,7 +87,7 @@ public class MyArrayList<T> implements MyList<T> {
         }
     }
 
-    private void resize (int newLength) {
+    private void resize(int newLength) {
         elementArray = Arrays.copyOf(elementArray, newLength);
     }
 
