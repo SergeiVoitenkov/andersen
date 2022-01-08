@@ -11,9 +11,11 @@ public interface MyList<T> {
 
     T set(int index, T element);
 
-    void remove(int index);
+    String remove(int index);
 
     void remove(T element);
 
     int size();
+
+    boolean isEmpty();
 }

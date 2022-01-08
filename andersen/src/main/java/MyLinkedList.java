@@ -115,7 +115,7 @@ public class MyLinkedList<T> implements MyList<T>, MyDeque<T> {
     }
 
     @Override
-    public void remove(int index) {
+    public String remove(int index) {
         Objects.checkIndex(index, size);
 
         if (index == 0) {
@@ -131,6 +131,7 @@ public class MyLinkedList<T> implements MyList<T>, MyDeque<T> {
             }
         }
         size--;
+        return null;
     }
 
     @Override
