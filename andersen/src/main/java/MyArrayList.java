@@ -49,10 +49,12 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public boolean add(int index, Object element) {
-        if (index >= 0) {
+        if (index > 0) {
             try {
-                this.elementArray = Arrays.copyOf(this.elementArray, index < this.elementArray.length ? this.elementArray.length + 1 : index + 1);
+                this.elementArray = Arrays.copyOf(this.elementArray, this.elementArray.length + 1);
+
                 if (index < this.elementArray.length) {
+
                     for (int i = elementArray.length - 1; i > index; i--) {
                         this.elementArray[i] = this.elementArray[i - 1];
                     }
@@ -64,9 +66,12 @@ public class MyArrayList<T> implements MyList<T> {
             }
 
             return true;
+        } else if (index == 0 && element == null) {
+            throw new NullPointerException();
         } else {
             return false;
         }
+
     }
 
     @Override
@@ -76,28 +81,30 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public T set(int index, T element) {
-        if (index > 0 && index < size) {
+        if (index > 0 && index < size && element != null) {
             T oldValue = elementArray[index];
             elementArray[index] = element;
             return oldValue;
-
+        } else if (element == null) {
+            throw new NullPointerException();
         }
 
         return null;
     }
 
     @Override
-    public void remove(int index) {
-        if (index >= 0 && index < size) {
+    public String remove(int index) {
+        if (size == 0) {
+            throw new IndexOutOfBoundsException();
+        } else if (index >= 0 && index < size) {
             Object temp = this.elementArray[index];
+
             for (int i = index; i < elementArray.length - 1; i++) {
                 this.elementArray[i] = this.elementArray[i + 1];
             }
             this.size--;
-            //return (int) temp;
         }
-
-        //return 0;
+        return null;
     }
 
     @Override
@@ -121,7 +128,7 @@ public class MyArrayList<T> implements MyList<T> {
         }
     }
 
-    private void resize (int newLength) {
+    private void resize(int newLength) {
         elementArray = Arrays.copyOf(elementArray, newLength);
     }
 
@@ -134,10 +141,16 @@ public class MyArrayList<T> implements MyList<T> {
         return Arrays.copyOf(elementArray, (int) (size * 1.5) + 1);
     }
 
+
+    @Override
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
 
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < size; i++) {
             if (i < size - 1) {
                 sb.append(elementArray[i]).append(", ");
