@@ -48,6 +48,7 @@ public class ArrayListTest {
     private void assertEquals(String karol, String s) {
     }
 
+<<<<<<< HEAD
     @Test(expected = NullPointerException.class)
     public void testAddElementNull() {
         list.add(0, null);
@@ -87,3 +88,45 @@ public class ArrayListTest {
         list.remove(0);
     }
 }
+=======
+    @Test (expected = NullPointerException.class)
+        public void testAddElementNull(){
+            list.add(0, null);
+        }
+
+        @Test (expected = NullPointerException.class)
+        public void testSetElementNull(){
+            list.add(0, "Kheyla");
+            list.set(0, null);
+        }
+
+        @Test
+        public void testSetElement(){
+            list.add(0, "Karol");
+            list.add(1, "Vanessa");
+            list.add(2, "Amanda");
+
+            list.set(1, "Livia");
+
+            assertEquals("Karol", list.get(0));
+            assertEquals("Livia", list.get(1));
+            assertEquals("Amanda", list.get(2));
+        }
+
+        @Test
+        public void testRemoveElement(){
+            list.add(0, "Karol");
+            list.add(1, "Vanessa");
+            list.add(2, "Amanda");
+
+            assertEquals("Amanda", list.remove(2));
+            Assertions.assertEquals(2, list.size());
+        }
+
+            @Test (expected = IndexOutOfBoundsException.class)
+        public void testRemoveWithEmptyList(){
+            list.remove(0);
+        }
+
+}
+>>>>>>> origin/voitenkov.task2
