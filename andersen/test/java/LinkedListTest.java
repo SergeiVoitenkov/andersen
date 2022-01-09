@@ -3,6 +3,8 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import java.util.Comparator;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -299,6 +301,32 @@ public class LinkedListTest {
         int size = list.size();
 
         assertEquals(5, size);
+    }
 
+    @Test
+    @Order(24)
+    void testSort() {
+        list = new MyLinkedList<>();
+        list.add(5);
+        list.add(4);
+        list.add(3);
+        list.add(1);
+        list.add(2);
+        list.add(1);
+
+        Comparator<Integer> comparatorLinked = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return (o1 - o2);
+            }
+        };
+        list.sort(comparatorLinked);
+
+        assertEquals(1, list.get(0));
+        assertEquals(1, list.get(1));
+        assertEquals(2, list.get(2));
+        assertEquals(3, list.get(3));
+        assertEquals(4, list.get(4));
+        assertEquals(5, list.get(5));
     }
 }
