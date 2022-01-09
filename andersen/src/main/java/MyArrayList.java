@@ -141,7 +141,6 @@ public class MyArrayList<T> implements MyList<T> {
         return Arrays.copyOf(elementArray, (int) (size * 1.5) + 1);
     }
 
-
     @Override
     public boolean isEmpty() {
         return size == 0;
