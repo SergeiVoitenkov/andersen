@@ -16,20 +16,6 @@ public class MyLinkedList<T> implements MyList<T>, MyDeque<T> {
             this.element = value;
             this.prev = prev;
         }
-
-        private Node(Node<T> next, T value) {
-            this.next = next;
-            this.element = value;
-        }
-
-        @Override
-        public String toString() {
-            return "Node{" +
-                    "next=" + next +
-                    ", element=" + element +
-                    ", prev=" + prev +
-                    '}';
-        }
     }
 
     public MyLinkedList() {
@@ -37,40 +23,40 @@ public class MyLinkedList<T> implements MyList<T>, MyDeque<T> {
 
     @Override
     public boolean add(T element) {
-        Node<T> currentNode = new Node<>(null, element);
+        Node<T> currentNode;
 
         if (first == null) {
+            currentNode = new Node<>(null, element, null);
             first = currentNode;
-            last = currentNode;
         } else {
+            currentNode = new Node<>(null, element, last);
             last.next = currentNode;
-            currentNode.prev = last;
-            last = currentNode;
         }
-
+        last = currentNode;
         size++;
         return true;
     }
 
     @Override
     public void sort(Comparator<? super T> comparator) {
-        //Понятие как написать сортировку есть, но не хватило времени :(.
+        for (int i = 0; i < size; i++) {
+            Node<T> firstElement = first;
+
+            while (firstElement.next != null) {
+                Node<T> secondElement = firstElement.next;
+                if (comparator.compare(firstElement.element, secondElement.element) > 0) {
+                    Node<T> tmp = new Node<>(null, secondElement.element, null);
+                    secondElement.element = firstElement.element;
+                    firstElement.element = tmp.element;
+                }
+                firstElement = secondElement;
+            }
+        }
     }
 
     @Override
     public void addLast(T element) {
-        Node<T> currentNode = new Node<>(null, element, null);
-
-        if (first == null) {
-            first = currentNode;
-            last = currentNode;
-        } else {
-            currentNode.next = first;
-            first = currentNode;
-            last = currentNode;
-        }
-
-        size++;
+        add(element);
     }
 
     @Override
