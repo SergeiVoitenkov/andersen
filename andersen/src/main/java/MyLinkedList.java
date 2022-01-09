@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 public class MyLinkedList<T> implements MyList<T>, MyDeque<T> {
 
     private int size;
@@ -55,6 +56,15 @@ public class MyLinkedList<T> implements MyList<T>, MyDeque<T> {
     @Override
     public void sort(Comparator<? super T> comparator) {
         //Понятие как написать сортировку есть, но не хватило времени :(.
+        Node<T> m;
+        Node<T> g;
+        for (m = last; m.prev != null; m = m.prev){
+            for (g = first; g != m; g = g.next){
+                int result = g.element.compareTo(g.next.element);
+                if (result > 0)
+                    swap (g, g.next);
+            }
+        }
     }
 
     @Override
