@@ -1,10 +1,30 @@
-target/
-output/
-release/
-debug/
-out/
-.idea/
+
+
+# Created by .ignore support plugin (hsz.mobi)
+# IntelliJ project files
+logs
+out
+gen
+docs/index.html
+docs/index.pdf
+build
+output
+.idea
 *.xml
 *.iml
-*.log
+
+### Java template
+*.class
+
+# Package Files #
+*.jar
+!gradle-wrapper.jar
+*.war
+*.ear
+
 *~
+.DS_Store
+*.log
+
+# Maven
+.maven

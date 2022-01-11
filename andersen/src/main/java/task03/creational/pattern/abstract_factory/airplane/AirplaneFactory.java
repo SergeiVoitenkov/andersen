@@ -25,9 +25,15 @@ public class AirplaneFactory {
     public Airplane getAirplane(AirplaneModel airplaneModel) {
         Airplane airplane = null;
         switch (airplaneModel) {
-            case BOEING737 -> airplane = new Boeing737();
-            case AN22 -> airplane = new An22();
-            default -> System.out.println("Error: такой самолет отсутствует!");
+            case BOEING737:
+                airplane = new Boeing737();
+                break;
+            case AN22:
+                airplane = new An22();
+                break;
+            default:
+                System.out.println("Error: такой самолет отсутствует!");
+                break;
         }
         return airplane;
     }

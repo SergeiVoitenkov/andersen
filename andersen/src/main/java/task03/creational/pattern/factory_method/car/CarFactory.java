@@ -23,10 +23,18 @@ public class CarFactory {
     public Car getCar(CarModel carModel) {
         Car car = null;
         switch (carModel) {
-            case BMW -> car = new BMW();
-            case BUGATTI -> car = new Bugatti();
-            case MERCEDES -> car = new Mercedes();
-            default -> System.out.println("Error: такой автомобиль отсутствует!");
+            case BMW:
+                car = new BMW();
+                break;
+            case BUGATTI:
+                car = new Bugatti();
+                break;
+            case MERCEDES:
+                car = new Mercedes();
+                break;
+            default:
+                System.out.println("Error: такой автомобиль отсутствует!");
+                break;
         }
         return car;
     }
