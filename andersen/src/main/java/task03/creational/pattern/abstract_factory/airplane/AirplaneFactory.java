@@ -1,0 +1,34 @@
+package task03.creational.pattern.abstract_factory.airplane;
+
+import task03.creational.pattern.abstract_factory.transport_interface.Airplane;
+
+/**
+ * AirplaneFactory - singleton.
+ * Method getAirplane - factory.
+ * Нам известен интерфейс, но заранее не известно, какая реализация будет использоваться.
+ * Создание объекта происходит через вызов метода в который передается условие(параметр).
+ */
+public class AirplaneFactory {
+
+    public static AirplaneFactory instance;
+
+    public static AirplaneFactory getInstance() {
+        if (instance == null) {
+            instance = new AirplaneFactory();
+        }
+        return instance;
+    }
+
+    private AirplaneFactory() {
+    }
+
+    public Airplane getAirplane(AirplaneModel airplaneModel) {
+        Airplane airplane = null;
+        switch (airplaneModel) {
+            case BOEING737 -> airplane = new Boeing737();
+            case AN22 -> airplane = new An22();
+            default -> System.out.println("Error: такой самолет отсутствует!");
+        }
+        return airplane;
+    }
+}

@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import task01.MyArrayList;
+import task01.MyList;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

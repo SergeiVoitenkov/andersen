@@ -1,6 +1,10 @@
+package task02;
+
+import task01.MyList;
+
 import java.util.*;
 
-public class MyLinkedList<T> implements MyList<T>, MyDeque<T> {
+public class MyLinkedList<T> implements MyList<T>,  MyDeque<T> {
 
     private int size;
     private Node<T> first;
