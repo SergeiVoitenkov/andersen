@@ -1,0 +1,10 @@
+target/
+output/
+release/
+debug/
+out/
+.idea/
+*.xml
+*.iml
+*.log
+*~
