@@ -51,7 +51,7 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public boolean add(int index, Object element) {
-        if (index > 0) {
+        if (index >= 0) {
             try {
                 this.elementArray = Arrays.copyOf(this.elementArray, this.elementArray.length + 1);
 
@@ -68,9 +68,7 @@ public class MyArrayList<T> implements MyList<T> {
             }
 
             return true;
-        } else if (index == 0 && element == null) {
-            throw new NullPointerException();
-        } else {
+        }else {
             return false;
         }
 

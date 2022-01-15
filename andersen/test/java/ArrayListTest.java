@@ -43,7 +43,7 @@ public class ArrayListTest {
         assertEquals("Vanessa", list.get(2));
         assertEquals("Amanda", list.get(3));
 
-        Assertions.assertEquals(3, list.size());
+        Assertions.assertEquals(4, list.size());
     }
 
     private void assertEquals(String karol, String s) {

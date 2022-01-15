@@ -7,10 +7,16 @@ public class App {
     public static void main(String[] args) {
 
         MyArrayList<User> myArrayList = new MyArrayList<>();
-        myArrayList.add(new User("C", 1));
-        myArrayList.add(new User("D", 2));
-        myArrayList.add(new User("A", 3));
-        myArrayList.add(new User("R", 4));
+
+        myArrayList.add(0, "Karol");
+        myArrayList.add(1, "Vanessa");
+        myArrayList.add(2, "Amanda");
+
+        myArrayList.add(1, "Mariana");
+
+        System.out.println(myArrayList.toString());
+        System.out.println(myArrayList.size());
+
 
         Comparator<User> comparator = new Comparator<User>() {
             @Override
@@ -23,18 +29,5 @@ public class App {
 //                }
             }
         };
-
-        myArrayList.sort(comparator);
-        System.out.println(myArrayList);
-        User user = new User("ffgfdh", 2);
-        User user1 = new User("qqqq", 22);
-        myArrayList.add(user);
-        System.out.println(myArrayList);
-        myArrayList.remove(user);
-        System.out.println(myArrayList);
-        myArrayList.set(1, user1);
-        System.out.println(myArrayList);
-        myArrayList.remove(2);
-        System.out.println(myArrayList);
     }
 }
