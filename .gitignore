@@ -10,7 +10,6 @@ docs/index.pdf
 build
 output
 .idea
-*.xml
 *.iml
 
 ### Java template
